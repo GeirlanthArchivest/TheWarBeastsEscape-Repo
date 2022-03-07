@@ -37,13 +37,13 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                playerRect = (playerRect[0]+20, playerRect[1])
+                playerRect.centerx += 20
             if event.key == pygame.K_LEFT:
-                playerRect = (playerRect[0]-20, playerRect[1])
+                playerRect.centerx -= 20
             if event.key == pygame.K_UP:
-                playerRect = (playerRect[0], playerRect[1]-20)
+                playerRect.centery -= 20
             if event.key == pygame.K_DOWN:
-                playerRect = (playerRect[0], playerRect[1]+20)
+                playerRect.centery += 20
 
     #--------------------------------
     #Update

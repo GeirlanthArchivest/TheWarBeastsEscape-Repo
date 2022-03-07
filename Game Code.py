@@ -16,8 +16,10 @@ screen = pygame.display.set_mode([500, 500])
 running = True
 
 #set up player sprite
-playerimg = pygame.image.load('Assets/Graphics')
-
+playerImg = pygame.image.load('Assets/Graphics/Kytal-1.png')
+playerImg.convert()
+playerRect = playerImg.get_rect()
+playerRect.center = 250, 250
 #--------------------------------
 #Game Loop
 #--------------------------------
@@ -45,8 +47,9 @@ while running:
     #fill the background with a colour
     screen.fill((155, 155, 155))
 
-    #Draw a solid blue circle
+    #Draw Everything
     pygame.draw.circle(screen, (0,0,255), (250,250), 75)
+    screen.blit(playerImg, playerRect)
 
     #Flip the display
     pygame.display.flip()

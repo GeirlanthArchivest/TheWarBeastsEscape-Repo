@@ -10,11 +10,13 @@ import pygame
 pygame.init()
 
 #Set up the drawing window
-
 screen = pygame.display.set_mode([500, 500])
 
 #set up some variables to use later
 running = True
+
+#set up player sprite
+playerimg = pygame.image.load('Assets/Graphics')
 
 #--------------------------------
 #Game Loop

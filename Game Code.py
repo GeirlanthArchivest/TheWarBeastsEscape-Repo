@@ -34,12 +34,21 @@ while running:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             running=False
-    #--------------------------------
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                playerRect = (playerRect[0]+20, playerRect[1])
+            if event.key == pygame.K_LEFT:
+                playerRect = (playerRect[0]-20, playerRect[1])
+            if event.key == pygame.K_UP:
+                playerRect = (playerRect[0], playerRect[1]-20)
+            if event.key == pygame.K_DOWN:
+                playerRect = (playerRect[0], playerRect[1]+20)
 
     #--------------------------------
     #Update
     #--------------------------------
-
+    
 
     #--------------------------------
     #Draw

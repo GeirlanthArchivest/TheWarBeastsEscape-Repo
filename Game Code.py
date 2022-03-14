@@ -29,6 +29,11 @@ playerImg.convert()
 playerRect = playerImg.get_rect()
 playerRect.center = 250, 250
 
+#set up enemy sprite
+enemyImg = pygame.image.load('Assets/Graphics/Guard-1.png')
+enemyImg.convert()
+enemyRect = enemyImg.get_rect()
+enemyRect.center = 250,250
 
 #Set up moveent variables
 moveLeft = False
@@ -99,7 +104,8 @@ while running:
     #Draw Everything
     pygame.draw.circle(screen, (0,0,255), (250,250), 75)
     screen.blit(playerImg, playerRect)
-
+    screen.blit(enemyImg, enemyRect)
+    
     #Flip the display
     pygame.display.flip()
 #--------------------------------

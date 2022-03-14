@@ -9,17 +9,32 @@ import pygame
 #Initialise python
 pygame.init()
 
+#Set up a game clock
+mainClock = pygame.time.Clock()
+
 #Set up the drawing window
-screen = pygame.display.set_mode([500, 500])
+WINDOWWIDTH = 500
+WINDOWHEIGHT = 500
+screen = pygame.display.set_mode([WINDOWWIDTH, WINDOWHEIGHT])
 
 #set up some variables to use later
 running = True
+position = [WINDOWWIDTH /2, WINDOWHEIGHT /2]
+PLAYERSIZE = 50
+MOVESPEED = 100
 
 #set up player sprite
 playerImg = pygame.image.load('Assets/Graphics/Kytal-1.png')
 playerImg.convert()
 playerRect = playerImg.get_rect()
 playerRect.center = 250, 250
+
+
+#Set up moveent variables
+moveLeft = False
+moveRight = False
+moveUp = False
+moveDown = False
 #--------------------------------
 #Game Loop
 #--------------------------------
@@ -37,19 +52,44 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                playerRect.centerx += 20
+                moveRight = True
             if event.key == pygame.K_LEFT:
-                playerRect.centerx -= 20
+                moveLeft = True
             if event.key == pygame.K_UP:
-                playerRect.centery -= 20
+                moveUp = True
             if event.key == pygame.K_DOWN:
-                playerRect.centery += 20
+                moveDown = True
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                moveRight = False
+            if event.key == pygame.K_LEFT:
+                moveLeft = False
+            if event.key == pygame.K_UP:
+                moveUp = False
+            if event.key == pygame.K_DOWN:
+                moveDown = False
 
     #--------------------------------
     #Update
     #--------------------------------
-    
+    #Get the frame time
+    frameMs = mainClock.tick()
+    frameSec = frameMs / 1000
 
+    if moveRight == True:
+        position[0] += MOVESPEED * frameSec
+    if moveLeft == True:
+        position[0] -= MOVESPEED * frameSec
+    if moveUp == True:
+        position[1] -= MOVESPEED * frameSec
+    if moveDown == True:
+        position[1] += MOVESPEED * frameSec
+
+    #Update players sprite based on position
+    playerRect.left = position[0]    
+    playerRect.top = position[1]
+        
     #--------------------------------
     #Draw
     #--------------------------------

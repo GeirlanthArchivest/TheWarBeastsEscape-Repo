@@ -16,6 +16,7 @@ mainClock = pygame.time.Clock()
 WINDOWWIDTH = 500
 WINDOWHEIGHT = 500
 screen = pygame.display.set_mode([WINDOWWIDTH, WINDOWHEIGHT])
+pygame.display.set_caption('The War Beast Escape')
 
 #set up some variables to use later
 running = True

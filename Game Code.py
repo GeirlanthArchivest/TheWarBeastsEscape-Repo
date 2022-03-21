@@ -23,17 +23,31 @@ position = [WINDOWWIDTH /2, WINDOWHEIGHT /2]
 PLAYERSIZE = 50
 MOVESPEED = 100
 
-#set up player sprite
+#set up sprite
 playerImg = pygame.image.load('Assets/Graphics/Kytal-1.png')
 playerImg.convert()
 playerRect = playerImg.get_rect()
 playerRect.center = 250, 250
 
-#set up enemy sprite
 enemyImg = pygame.image.load('Assets/Graphics/Guard-1.png')
 enemyImg.convert()
 enemyRect = enemyImg.get_rect()
 enemyRect.center = 250,250
+
+foodImg = pygame.image.load('Assets/Graphics/food.png')
+foodImg.convert()
+foodRect = foodImg.get_rect()
+foodRect.center = 300,400
+
+syremaiImg = pygame.image.load('Assets/Graphics/Syremai.png')
+syremaiImg.convert()
+syremaiRect = syremaiImg.get_rect()
+syremaiRect.center = 300,100
+
+dykramaImg = pygame.image.load('Assets/Graphics/dykrama.png')
+dykramaImg.convert()
+dykramaRect = dykramaImg.get_rect()
+dykramaRect.center = 100,200
 
 #Set up moveent variables
 moveLeft = False
@@ -105,6 +119,9 @@ while running:
     pygame.draw.circle(screen, (0,0,255), (250,250), 75)
     screen.blit(playerImg, playerRect)
     screen.blit(enemyImg, enemyRect)
+    screen.blit(foodImg, foodRect)
+    screen.blit(syremaiImg, syremaiRect)
+    screen.blit(dykramaImg, dykramaRect)
     
     #Flip the display
     pygame.display.flip()

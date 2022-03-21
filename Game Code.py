@@ -21,7 +21,7 @@ screen = pygame.display.set_mode([WINDOWWIDTH, WINDOWHEIGHT])
 running = True
 position = [WINDOWWIDTH /2, WINDOWHEIGHT /2]
 PLAYERSIZE = 50
-MOVESPEED = 100
+MOVESPEED = 200
 
 #set up sprite
 playerImg = pygame.image.load('Assets/Graphics/Kytal-1.png')
@@ -48,6 +48,11 @@ dykramaImg = pygame.image.load('Assets/Graphics/dykrama.png')
 dykramaImg.convert()
 dykramaRect = dykramaImg.get_rect()
 dykramaRect.center = 100,200
+
+heartImg = pygame.image.load('Assets/Graphics/heart.png')
+heartImg.convert()
+heartRect = heartImg.get_rect()
+heartRect.center = 400,200
 
 #Set up moveent variables
 moveLeft = False
@@ -122,6 +127,7 @@ while running:
     screen.blit(foodImg, foodRect)
     screen.blit(syremaiImg, syremaiRect)
     screen.blit(dykramaImg, dykramaRect)
+    screen.blit(heartImg, heartRect)
     
     #Flip the display
     pygame.display.flip()
